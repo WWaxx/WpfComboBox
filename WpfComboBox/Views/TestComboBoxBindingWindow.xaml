@@ -1,0 +1,30 @@
+﻿<Window x:Class="WpfComboBox.Views.TestComboBoxBindingWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfComboBox.Views"
+        xmlns:viewmodels="clr-namespace:WpfComboBox.ViewModels"
+        mc:Ignorable="d"
+        Title="TestComboBoxBindingWindow" Height="450" Width="800">
+    
+    <Window.DataContext>
+        <viewmodels:TestComboBoxViewModel />
+    </Window.DataContext>
+    
+    <Grid>
+        <StackPanel>
+            <ComboBox
+                ItemsSource="{Binding MyCollectionView}"
+                />
+            <ComboBox
+                ItemsSource="{Binding MyCollectionView2}"
+                DisplayMemberPath="Name"
+                />
+            <Button
+                Content="ComboBoxUpdating"
+                Command="{Binding ComboBoxUpdating}"
+                />
+        </StackPanel>
+    </Grid>
+</Window>
